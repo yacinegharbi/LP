@@ -23,6 +23,17 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--font);
      -webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img{display:block;max-width:100%;}
+main,
+footer{
+  position:relative;
+  background:
+    linear-gradient(180deg,rgba(8,11,26,.86),rgba(8,11,26,.94)),
+    repeating-linear-gradient(115deg,rgba(255,255,255,.028) 0 1px,transparent 1px 96px),
+    radial-gradient(ellipse 70% 45% at 18% 14%,rgba(79,70,229,.18),transparent 64%),
+    radial-gradient(ellipse 62% 42% at 88% 48%,rgba(16,185,129,.11),transparent 68%),
+    radial-gradient(ellipse 58% 38% at 26% 86%,rgba(236,72,153,.09),transparent 70%),
+    #080b1a;
+}
 
 /* ── GRADIENT TEXT ─────────────────────────────────────────── */
 .gradient-text{
@@ -208,7 +219,39 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
   position:relative;min-height:100vh;
   display:flex;flex-direction:column;align-items:center;
   justify-content:center;overflow:hidden;
-  background:radial-gradient(ellipse 90% 70% at 50% -10%,rgba(79,70,229,.22) 0%,transparent 55%);
+  isolation:isolate;
+  background:
+    linear-gradient(180deg,rgba(8,11,26,.48),rgba(8,11,26,.88)),
+    radial-gradient(ellipse 56% 44% at 50% 18%,rgba(124,58,237,.28),transparent 68%),
+    radial-gradient(ellipse 42% 34% at 72% 58%,rgba(16,185,129,.16),transparent 70%),
+    linear-gradient(135deg,#070a17 0%,#0b1028 50%,#07130f 100%);
+}
+#hero::before,
+#hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+#hero::before{
+  z-index:1;
+  opacity:.55;
+  background:
+    linear-gradient(110deg,transparent 0 38%,rgba(16,185,129,.28) 38.1%,transparent 38.5%),
+    linear-gradient(144deg,transparent 0 44%,rgba(124,58,237,.38) 44.1%,transparent 44.5%),
+    linear-gradient(72deg,transparent 0 59%,rgba(236,72,153,.24) 59.1%,transparent 59.5%),
+    radial-gradient(circle at 31% 42%,rgba(255,255,255,.24) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 50% 34%,rgba(255,255,255,.18) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 68% 49%,rgba(255,255,255,.22) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 76% 64%,rgba(255,255,255,.16) 0 1px,transparent 1.5px);
+  mask-image:linear-gradient(90deg,transparent 8%,black 34%,black 75%,transparent 96%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 8%,black 34%,black 75%,transparent 96%);
+}
+#hero::after{
+  z-index:1;
+  background:
+    linear-gradient(180deg,rgba(8,11,26,.14),rgba(8,11,26,.94)),
+    radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.34) 78%);
 }
 
 /* film grain */
@@ -218,47 +261,8 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
   background:url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>');
 }
 
-/* hero map */
-.hero-map{
-  position:absolute;
-  right:-2%;
-  bottom:-4%;
-  width:55%;
-  max-width:620px;
-  z-index:1;
-  pointer-events:none;
-  opacity:0;
-  animation:mapFadeIn 1.2s var(--ease) .6s forwards;
-}
-@keyframes mapFadeIn{
-  from{opacity:0;transform:translateY(20px) scale(.98);}
-  to  {opacity:1;transform:translateY(0)   scale(1);}
-}
-.hero-map-img{
-  width:100%;height:auto;
-  /* Isometric tilt matching the reference image */
-  transform:perspective(900px) rotateX(8deg) rotateY(-4deg);
-  filter:drop-shadow(0 8px 40px rgba(124,58,237,.4))
-         drop-shadow(0 0 80px rgba(168,85,247,.2));
-  animation:mapFloat 7s ease-in-out 1.8s infinite;
-}
-@keyframes mapFloat{
-  0%,100%{transform:perspective(900px) rotateX(8deg) rotateY(-4deg) translateY(0);}
-  50%    {transform:perspective(900px) rotateX(8deg) rotateY(-4deg) translateY(-8px);}
-}
-
-/* keep hero text above the map */
 .hero-inner{position:relative;z-index:5;}
-
-/* on mobile: smaller, more transparent so it doesn't crowd text */
-@media(max-width:767px){
-  .hero-map{
-    width:95%;right:-5%;bottom:-2%;
-    opacity:0;
-    animation:mapFadeIn .8s var(--ease) .8s forwards;
-  }
-  .hero-map-img{opacity:.3;}
-}
+.bg-grid{
   position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.35;
   background-size:60px 60px;
   background-image:
@@ -384,7 +388,13 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 /* ======================================================== */
 /*  REALITY CHECK SECTION                                   */
 /* ======================================================== */
-#reality{padding:0;}
+#reality{
+  position:relative;
+  padding:0;
+  background:
+    linear-gradient(180deg,rgba(8,11,26,.95),rgba(8,11,26,.84)),
+    radial-gradient(ellipse 58% 42% at 8% 14%,rgba(236,72,153,.08),transparent 66%);
+}
 
 /* Part 1 — image + text split */
 .reality-panel{
@@ -393,7 +403,7 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
   grid-template-columns:1fr 1fr;
   min-height:520px;
   overflow:hidden;
-  background:var(--bg);
+  background:linear-gradient(135deg,rgba(13,18,48,.96),rgba(8,11,26,.96));
 }
 
 @media(max-width:767px){
@@ -458,7 +468,9 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 
 /* Part 2 — the question alone */
 .reality-question{
-  background:var(--bg);
+  background:
+    linear-gradient(180deg,rgba(8,11,26,.9),rgba(13,18,48,.88)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.026) 0 1px,transparent 1px 84px);
   padding:5rem 2rem 6rem;
   text-align:center;
   border-top:1px solid var(--border);
@@ -477,7 +489,14 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 /* ======================================================== */
 /*  DEVICES SECTION                                         */
 /* ======================================================== */
-#devices{padding:5rem 0 6rem;}
+#devices{
+  position:relative;
+  overflow:hidden;
+  padding:5rem 0 6rem;
+  background:
+    radial-gradient(ellipse 54% 38% at 78% 12%,rgba(16,185,129,.10),transparent 68%),
+    linear-gradient(180deg,rgba(8,11,26,.88),rgba(13,18,48,.7));
+}
 
 /* deep card */
 .devices-card{
@@ -696,13 +715,22 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 /* ======================================================== */
 /*  PROBLEM SECTION                                         */
 /* ======================================================== */
-#problems{padding:6rem 0;}
+#problems{
+  position:relative;
+  overflow:hidden;
+  padding:6rem 0;
+  background:
+    linear-gradient(180deg,rgba(13,18,48,.7),rgba(8,11,26,.9)),
+    repeating-linear-gradient(135deg,rgba(124,58,237,.045) 0 1px,transparent 1px 92px);
+}
 .problem-cards{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem;
 }
 @media(max-width:900px){.problem-cards{grid-template-columns:1fr;}}
 .problem-card{
-  background:var(--surf2);border:1px solid var(--border);border-radius:16px;
+  background:linear-gradient(145deg,rgba(17,24,64,.88),rgba(13,18,48,.82));
+  border:1px solid var(--border);border-radius:16px;
+  backdrop-filter:blur(12px);
   padding:2rem;cursor:default;
   transition:border-color 200ms,box-shadow 200ms,transform 200ms var(--ease);
 }
@@ -721,11 +749,21 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 /* ======================================================== */
 /*  VALUE PROP                                              */
 /* ======================================================== */
-#seekers{padding:6rem 0;}
+#seekers{
+  position:relative;
+  overflow:hidden;
+  padding:6rem 0;
+  background:
+    radial-gradient(ellipse 46% 32% at 16% 18%,rgba(16,185,129,.10),transparent 68%),
+    radial-gradient(ellipse 44% 34% at 88% 70%,rgba(236,72,153,.08),transparent 70%),
+    linear-gradient(180deg,rgba(8,11,26,.9),rgba(10,15,38,.86));
+}
 .value-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
 @media(max-width:767px){.value-grid{grid-template-columns:1fr;}}
 .value-col{
-  background:var(--surf2);border:1px solid var(--border);border-radius:16px;
+  background:linear-gradient(145deg,rgba(17,24,64,.88),rgba(8,11,26,.84));
+  border:1px solid var(--border);border-radius:16px;
+  backdrop-filter:blur(12px);
   padding:2.5rem;transition:border-color 200ms,box-shadow 200ms;
 }
 .value-col:hover{border-color:rgba(124,58,237,.28);
@@ -746,12 +784,21 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 /* ======================================================== */
 /*  FEATURES                                                */
 /* ======================================================== */
-#features{padding:6rem 0;}
+#features{
+  position:relative;
+  overflow:hidden;
+  padding:6rem 0;
+  background:
+    linear-gradient(180deg,rgba(10,15,38,.86),rgba(8,11,26,.9)),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.024) 0 1px,transparent 1px 88px);
+}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 @media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:540px){.features-grid{grid-template-columns:1fr;}}
 .feature-card{
-  background:var(--surf2);border:1px solid var(--border);border-radius:16px;
+  background:linear-gradient(145deg,rgba(17,24,64,.86),rgba(13,18,48,.76));
+  border:1px solid var(--border);border-radius:16px;
+  backdrop-filter:blur(12px);
   padding:2rem;cursor:default;
   transition:border-color 240ms,box-shadow 240ms,transform 200ms var(--ease);
 }
@@ -766,7 +813,13 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 /* ======================================================== */
 /*  FINAL CTA                                               */
 /* ======================================================== */
-#cta{position:relative;overflow:hidden;padding:8rem 0;text-align:center;}
+#cta{
+  position:relative;overflow:hidden;padding:8rem 0;text-align:center;
+  background:
+    linear-gradient(180deg,rgba(8,11,26,.9),rgba(8,11,26,.98)),
+    radial-gradient(ellipse 54% 42% at 50% 28%,rgba(124,58,237,.18),transparent 70%),
+    repeating-linear-gradient(115deg,rgba(255,255,255,.032) 0 1px,transparent 1px 78px);
+}
 .cta-section-inner{
   position:relative;z-index:1;
   display:flex;flex-direction:column;align-items:center;gap:1.4rem;
@@ -789,6 +842,70 @@ h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;
 .cta-email-input:focus{border-color:var(--purple);
   box-shadow:0 0 0 3px rgba(124,58,237,.18);}
 .cta-fine{color:rgba(255,255,255,.22);font-size:.78rem;margin-top:-.25rem;}
+
+/* ======================================================== */
+/*  ALGERIA MAP BACKGROUNDS                                 */
+/* ======================================================== */
+
+/* Hero section: Algeria map background with pins */
+.algeria-map-bg{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  opacity:0.07;overflow:hidden;
+}
+
+/* SVG for hero Algeria map */
+#algeriaMapBg svg{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+}
+
+/* Floating animation for hero map */
+@keyframes mapFloat{
+  0%,100%{transform:translateY(0px) translateX(0px);}
+  25%{transform:translateY(-8px) translateX(3px);}
+  50%{transform:translateY(-4px) translateX(-2px);}
+  75%{transform:translateY(-10px) translateX(4px);}
+}
+
+.algeria-map-bg{
+  animation:mapFloat 12s ease-in-out infinite;
+}
+
+/* Pin animation - soft pulse */
+@keyframes pinPulse{
+  0%,100%{opacity:0.8;transform:scale(1);}
+  50%{opacity:1;transform:scale(1.15);}
+}
+
+.map-pin{
+  animation:pinPulse 2.5s ease-in-out infinite;
+}
+
+.map-pin:nth-child(1){animation-delay:0s;}
+.map-pin:nth-child(2){animation-delay:0.35s;}
+.map-pin:nth-child(3){animation-delay:0.7s;}
+.map-pin:nth-child(4){animation-delay:1.05s;}
+.map-pin:nth-child(5){animation-delay:1.4s;}
+
+/* Connection lines animation */
+@keyframes lineGlow{
+  0%,100%{opacity:0.3;}
+  50%{opacity:0.6;}
+}
+
+.connection-line{
+  animation:lineGlow 3s ease-in-out infinite;
+}
+
+/* CTA section: Algeria map background */
+.algeria-map-cta{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  opacity:0.04;overflow:hidden;
+  filter:drop-shadow(0 0 40px rgba(124,58,237,0.4));
+}
+
+#algeriaMapCta svg{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+}
 
 /* ======================================================== */
 /*  FOOTER                                                  */
