@@ -1940,6 +1940,36 @@ h2 {
 }
 
 /* ======================================================== */
+/*  SOLUTION BACKGROUND VIDEO WRAPPER                      */
+/* ======================================================== */
+#solution-bg-wrapper {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(8, 11, 26, .82), rgba(8, 11, 26, .92)),
+    radial-gradient(ellipse 58% 38% at 26% 86%, rgba(236, 72, 153, .09), transparent 70%),
+    #080b1a;
+  overflow: hidden;
+}
+
+#solution-bg-wrapper .solution-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+  filter: saturate(0.95) contrast(1.02) brightness(.45);
+}
+
+#solution-bg-wrapper section,
+#solution-bg-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ======================================================== */
 /*  FOOTER                                                  */
 /* ======================================================== */
 footer {

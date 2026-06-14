@@ -129,8 +129,14 @@
         <source src="solution-band.mp4" type="video/mp4" />
       </video>
 
-      <!-- ===== HEATMAP SHOWCASE ===== -->
-      <section id="heatmap-section" class="fade-in heatmap-section">
+      <!-- ===== SOLUTION SECTION WITH VIDEO BACKGROUND ===== -->
+      <div id="solution-bg-wrapper">
+        <video class="solution-bg-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+          <source src="solution-bg.mp4" type="video/mp4" />
+        </video>
+
+        <!-- ===== HEATMAP SHOWCASE ===== -->
+        <section id="heatmap-section" class="fade-in heatmap-section">
         <div class="container">
           <div class="section-header">
             <p class="section-eyebrow" data-i18n="prob.eyebrow">The Problem</p>
@@ -140,7 +146,7 @@
           </div>
 
           <div class="heatmap-shell">
-            <img src="mapWork.png" alt="Regional job map" class="heatmap-map" loading="eager" />
+            <img src="map-view.png" alt="Regional job map" class="heatmap-map" loading="eager" />
           </div>
         </div>
       </section>
@@ -366,6 +372,9 @@
           </div>
         </div>
       </section>
+
+      </div>
+      <!-- ===== END SOLUTION BACKGROUND WRAPPER ===== -->
 
     </div>
 
