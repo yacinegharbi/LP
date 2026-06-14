@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -53,12 +54,11 @@
 
     <!-- ===== HERO ===== -->
     <section id="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="hero-background.mp4" type="video/mp4" />
+      </video>
       <div class="film-grain" aria-hidden="true"></div>
       <div class="bg-grid" aria-hidden="true"></div>
-      <div class="algeria-map-bg" id="algeriaMapBg" aria-hidden="true"></div>
-
-      
-
       <div class="lamp-beams" aria-hidden="true">
         <div class="lamp-left"></div>
         <div class="lamp-right"></div>
@@ -82,7 +82,7 @@
         </div>
         <div class="hero-stats hero-anim-5">
           <div class="hero-stat">
-            <span class="hero-stat-num gradient-text">58</span>
+            <span class="hero-stat-num gradient-text">68</span>
             <span class="hero-stat-label" data-i18n="hero.wilayas">Wilayas</span>
           </div>
           <span class="hero-stat-div" aria-hidden="true"></span>
@@ -98,13 +98,6 @@
         </div>
       </div>
 
-      <!-- ticker -->
-      <div class="ticker-wrap" aria-hidden="true">
-        <div class="ticker-track">
-          <span>58 WILAYAS COVERED · 3 LANGUAGES · 100% ALGERIAN-BUILT · LAUNCHING AUGUST 2025 ·&nbsp;</span>
-          <span>58 WILAYAS COVERED · 3 LANGUAGES · 100% ALGERIAN-BUILT · LAUNCHING AUGUST 2025 ·&nbsp;</span>
-        </div>
-      </div>
     </section>
 
     <!-- ===== REALITY CHECK ===== -->
@@ -123,12 +116,26 @@
           <div class="reality-img-fade" aria-hidden="true"></div>
         </div>
       </div>
+    </section>
 
-      <!-- Part 2: just the question -->
-      <div class="reality-question fade-in">
-        <p data-i18n="reality.question">What is the solution?</p>
+    <div class="solution-band">
+      <video class="solution-band-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="solution-band.mp4" type="video/mp4" />
+      </video>
+
+    <!-- ===== HEATMAP SHOWCASE ===== -->
+    <section id="heatmap-section" class="fade-in heatmap-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow" data-i18n="prob.eyebrow">The Problem</p>
+          <h2 data-i18n="reality.question">What is the solution?</h2>
+          <p class="section-sub" data-i18n="map.sub">The answer starts with one combined map view, not separate cards.</p>
+        </div>
+
+        <div class="heatmap-shell">
+          <img src="mapWork.png" alt="Regional job map" class="heatmap-map" loading="eager" />
+        </div>
       </div>
-
     </section>
 
     <!-- ===== DEVICES SECTION ===== -->
@@ -139,7 +146,7 @@
         <div class="section-header">
           <p class="section-eyebrow" data-i18n="card.eyebrow">The Platform</p>
           <h2 data-i18n="card.heading">Algeria's recruitment,<br><span class="gradient-text">redefined.</span></h2>
-          <p class="section-sub" data-i18n="card.desc2">One app. Every device. All 58 wilayas.</p>
+          <p class="section-sub" data-i18n="card.desc2">One app. Every device. All 68 wilayas.</p>
         </div>
 
         <!-- deep card containing devices -->
@@ -151,7 +158,7 @@
             <!-- LEFT: platform description -->
             <div class="devices-left">
               <p class="card-desc" data-i18n="card.desc">
-                <strong>WorkDZ</strong> connects job seekers and recruiters across all 58 wilayas
+                <strong>WorkDZ</strong> connects job seekers and recruiters across all 68 wilayas
                 with real-time messaging, smart matching, and a full application lifecycle — on every device.
               </p>
               <div class="card-stats">
@@ -325,9 +332,13 @@
       </div>
     </section>
 
+    </div>
+
     <!-- ===== FINAL CTA ===== -->
     <section id="cta" class="fade-in">
-      <div class="algeria-map-cta" id="algeriaMapCta" aria-hidden="true"></div>
+      <video class="cta-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="cta-excited.mp4" type="video/mp4" />
+      </video>
       <div class="orb orb-cta-purple" aria-hidden="true"></div>
       <div class="orb orb-cta-pink"   aria-hidden="true"></div>
       <div class="container cta-section-inner">
@@ -349,8 +360,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="workdz-logo.svg" alt="WorkDZ logo" height="52" class="footer-logo-img" />
-          <p class="footer-tagline" data-i18n="footer.tagline">Algeria's newest end-to-end recruitment platform — connecting talent and opportunity across all 58 wilayas.</p>
-          <p class="footer-attr" data-i18n="footer.attr">Built at USTHB, Algiers</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Algeria's newest end-to-end recruitment platform — connecting talent and opportunity across all 68 wilayas.</p>
+          <p class="footer-attr" data-i18n="footer.attr">Built by USTHB students, Algiers</p>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.product">Product</h4>
@@ -374,9 +385,10 @@
         <div class="footer-col">
           <h4 data-i18n="footer.social">Social</h4>
           <ul>
-            <li><a href="#" aria-label="WorkDZ on Twitter">Twitter</a></li>
-            <li><a href="#" aria-label="WorkDZ on LinkedIn">LinkedIn</a></li>
-            <li><a href="#" aria-label="WorkDZ on Instagram">Instagram</a></li>
+            <li><a href="https://twitter.com/WorkDZ" aria-label="WorkDZ on Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://linkedin.com/company/workdz" aria-label="WorkDZ on LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://instagram.com/workdz" aria-label="WorkDZ on Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="mailto:hello@workdz.com" aria-label="Email WorkDZ"><i class="fas fa-envelope"></i> Email</a></li>
           </ul>
         </div>
       </div>
