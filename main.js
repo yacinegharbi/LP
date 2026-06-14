@@ -1,181 +1,114 @@
-/* ============================================================
-   WorkDZ — main.js
-   No scroll-pinning. Pure CSS animations + IntersectionObserver.
+/* ===========================================================
+   WorkDZ - Main JS
    ============================================================ */
-
-'use strict';
-
-/* ── 0. ALGERIA MAP INJECTION ─────────────────────────── */
-/* â”€â”€ 0. MAP IMAGE LAYER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-// The map now renders directly in the HTML with `mapWork.png`,
-// so no SVG injection is needed here.
-
-/* ── 1. ANNOUNCE BAR ──────────────────────────────────────── */
-const announceBar   = document.getElementById('announce-bar');
-const announceClose = document.getElementById('announceClose');
-
-function updateNavbarOffset() {
-  const barH = (announceBar && !announceBar.classList.contains('hidden'))
-    ? announceBar.offsetHeight : 0;
-  const nav = document.getElementById('navbar');
-  if (nav) nav.style.top = barH + 'px';
-  document.body.style.paddingTop = (barH + 68) + 'px';
-}
-
-if (announceClose) {
-  announceClose.addEventListener('click', () => {
-    announceBar.classList.add('hidden');
-    updateNavbarOffset();
-    try { sessionStorage.setItem('announce-closed', '1'); } catch (e) {}
+document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
   });
-}
 
-try {
-  if (sessionStorage.getItem('announce-closed')) announceBar?.classList.add('hidden');
-} catch (e) {}
-
-updateNavbarOffset();
-window.addEventListener('resize', updateNavbarOffset, { passive: true });
-
-function handleAnnounce(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = '✓ You\'re on the list!';
-  btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
-  e.target.querySelector('input').value = '';
-  setTimeout(() => { announceBar.classList.add('hidden'); updateNavbarOffset(); }, 1800);
-  return false;
-}
-
-function handleCtaEmail(e) {
-  e.preventDefault();
-  const btn  = e.target.querySelector('button');
-  const orig = btn.innerHTML;
-  btn.textContent = '✓ You\'re on the list!';
-  btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
-  e.target.querySelector('input').value = '';
-  setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 3000);
-  return false;
-}
-
-/* ── 1. LAMP BEAM ─────────────────────────────────────────── */
-setTimeout(() => {
-  document.getElementById('hero')?.classList.add('lamp-ready');
-}, 150);
-
-/* ── 2. NAVBAR ────────────────────────────────────────────── */
-const navbar       = document.getElementById('navbar');
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const navMenu      = document.getElementById('nav-menu');
-
-if (hamburgerBtn && navMenu) {
-  hamburgerBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const open = navbar.classList.toggle('nav-open');
-    hamburgerBtn.setAttribute('aria-expanded', String(open));
-    hamburgerBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    if (open) navMenu.querySelector('a')?.focus();
-  });
-  document.addEventListener('click', (e) => {
-    if (navbar.classList.contains('nav-open') && !navbar.contains(e.target)) {
-      navbar.classList.remove('nav-open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-      hamburgerBtn.setAttribute('aria-label', 'Open menu');
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
     }
   });
-  navMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
+
+  // Hamburger menu toggle
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  hamburgerBtn.addEventListener('click', () => {
+    const isNavOpen = navbar.classList.toggle('nav-open');
+    hamburgerBtn.setAttribute('aria-expanded', isNavOpen);
+  });
+
+  // Close mobile nav when a link is clicked
+  navMenu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
       navbar.classList.remove('nav-open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-      hamburgerBtn.setAttribute('aria-label', 'Open menu');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+    }
+  });
+
+  // Announcement bar close
+  const announceBar = document.getElementById('announce-bar');
+  const announceCloseBtn = document.getElementById('announceClose');
+  announceCloseBtn.addEventListener('click', () => {
+    announceBar.classList.add('hidden');
+  });
+
+  // Fade-in sections
+  const fadeInSections = document.querySelectorAll('.fade-in');
+  const fadeInObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.1 });
+
+  fadeInSections.forEach(section => {
+    fadeInObserver.observe(section);
   });
-}
 
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
+  // Hero animations
+  setTimeout(() => {
+    document.querySelector('.hero-inner').classList.add('ready');
+  }, 200);
 
-/* ── 3. HERO CSS ENTRANCE (triggered by class) ────────────── */
-// All hero children use CSS animations via .hero-inner.ready
-window.addEventListener('DOMContentLoaded', () => {
-  // Tiny delay so browser paints before animation starts
-  requestAnimationFrame(() => {
-    document.querySelector('.hero-inner')?.classList.add('ready');
-  });
-});
-
-/* ── 4. INTERSECTION OBSERVER — fade-in all .fade-in sections  */
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    // stagger cards inside the section
-    entry.target.querySelectorAll(
-      '.problem-card, .feature-card, .value-col, .floating-badge-static'
-    ).forEach((el, i) => {
-      el.style.transitionDelay = (i * 90) + 'ms';
+  // Mockup device mouse interaction
+  const devicesCenter = document.getElementById('devicesCenter');
+  const laptopMockup = document.getElementById('laptopMockup');
+  const phoneMockup = document.getElementById('phoneMockup');
+  if (devicesCenter && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    devicesCenter.addEventListener('mousemove', (e) => {
+      const rect = devicesCenter.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 35;
+      const rotateY = (x - centerX) / -35;
+      laptopMockup.style.transform = `perspective(1100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(0deg)`;
+      phoneMockup.style.transform = `perspective(1000px) rotateX(${rotateX * 0.8}deg) rotateY(${rotateY * 0.8}deg) rotateZ(0deg)`;
     });
-    io.unobserve(entry.target);
+
+    devicesCenter.addEventListener('mouseleave', () => {
+      laptopMockup.style.transform = 'perspective(1100px) rotateX(0) rotateY(0)';
+      phoneMockup.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+  }
+
+  // Floating icons in hero
+  const floatingIcons = document.querySelectorAll('.floating-icon');
+  floatingIcons.forEach(icon => {
+    icon.style.animationDelay = `${Math.random() * 20}s`;
+    icon.style.animationDuration = `${10 + Math.random() * 10}s`;
+    icon.style.left = `${Math.random() * 100}%`;
   });
-}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.fade-in').forEach(el => {
-  if (prefersReduced) el.classList.add('visible');
-  else io.observe(el);
+  // Handle announcement form submission
+  window.handleAnnounce = function(event) {
+    event.preventDefault();
+    // Add form submission logic here
+    console.log('Announcement form submitted');
+    return false;
+  }
+
+  // Handle CTA form submission
+  window.handleCtaEmail = function(event) {
+    event.preventDefault();
+    // Add form submission logic here
+    console.log('CTA form submitted');
+    return false;
+  }
 });
-
-/* ── 5. MOUSE PARALLAX — lerp RAF, no GSAP needed ────────── */
-const phoneMock  = document.getElementById('phoneMockup');
-const laptopMock = document.getElementById('laptopMockup');
-
-let tX = 0, tY = 0, cX = 0, cY = 0, rafGoing = false;
-
-function lerpTick() {
-  const f = 0.08;
-  cX += (tX - cX) * f;
-  cY += (tY - cY) * f;
-
-  if (phoneMock) {
-    phoneMock.style.transform =
-      `perspective(900px) rotateY(${cY * 7}deg) rotateX(${-cX * 7}deg)`;
-  }
-  if (laptopMock) {
-    laptopMock.style.transform =
-      `perspective(1100px) rotateY(${cY * 4 + 5}deg) rotateX(${-cX * 3 + 1}deg)`;
-  }
-
-  if (Math.abs(tX - cX) + Math.abs(tY - cY) > 0.002) {
-    requestAnimationFrame(lerpTick);
-  } else {
-    rafGoing = false;
-  }
-}
-
-// Only tilt when the devices section is in view
-const devicesEl = document.getElementById('devices');
-let devicesVisible = false;
-new IntersectionObserver(([e]) => { devicesVisible = e.isIntersecting; }, { threshold: 0.1 })
-  .observe(devicesEl || document.body);
-
-window.addEventListener('mousemove', (e) => {
-  if (!devicesVisible) return;
-  tX = (e.clientY / window.innerHeight - 0.5) * 2;
-  tY = (e.clientX / window.innerWidth  - 0.5) * 2;
-  if (!rafGoing) { rafGoing = true; requestAnimationFrame(lerpTick); }
-}, { passive: true });
-
-// Reset tilt when mouse leaves the window
-document.addEventListener('mouseleave', () => { tX = 0; tY = 0; });
-
-/* ── 6. CARD SHEEN (mouse glow inside devices card) ────────── */
-const devCard = document.querySelector('.devices-card');
-if (devCard) {
-  devCard.addEventListener('mousemove', (e) => {
-    const r = devCard.getBoundingClientRect();
-    devCard.style.setProperty('--mx', `${e.clientX - r.left}px`);
-    devCard.style.setProperty('--my', `${e.clientY - r.top}px`);
-  }, { passive: true });
-}
