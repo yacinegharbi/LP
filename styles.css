@@ -1,4 +1,5 @@
-/* ============================================================
+
+/* ===========================================================
    DESIGN TOKENS
    ============================================================ */
 :root {
@@ -494,6 +495,7 @@ h2 {
   }
 }
 
+
 /* ======================================================== */
 /*  HERO SECTION                                            */
 /* ======================================================== */
@@ -505,169 +507,74 @@ h2 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  isolation: isolate;
-  background:
-    linear-gradient(180deg, rgba(8, 11, 26, .48), rgba(8, 11, 26, .88)),
-    radial-gradient(ellipse 56% 44% at 50% 18%, rgba(124, 58, 237, .28), transparent 68%),
-    radial-gradient(ellipse 42% 34% at 72% 58%, rgba(16, 185, 129, .16), transparent 70%),
-    linear-gradient(135deg, #070a17 0%, #0b1028 50%, #07130f 100%);
+  background: var(--bg);
 }
 
-#hero .hero-video {
+.hero-background-icons {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  z-index: 0;
-  pointer-events: none;
-  filter: saturate(1.08) contrast(1.05) brightness(.62);
-}
-
-#hero::before,
-#hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-#hero::before {
-  z-index: 1;
-  opacity: .42;
-  background:
-    linear-gradient(110deg, transparent 0 38%, rgba(16, 185, 129, .28) 38.1%, transparent 38.5%),
-    linear-gradient(144deg, transparent 0 44%, rgba(124, 58, 237, .38) 44.1%, transparent 44.5%),
-    linear-gradient(72deg, transparent 0 59%, rgba(236, 72, 153, .24) 59.1%, transparent 59.5%),
-    radial-gradient(circle at 31% 42%, rgba(255, 255, 255, .24) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, .18) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 68% 49%, rgba(255, 255, 255, .22) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 76% 64%, rgba(255, 255, 255, .16) 0 1px, transparent 1.5px);
-  mask-image: linear-gradient(90deg, transparent 8%, black 34%, black 75%, transparent 96%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 8%, black 34%, black 75%, transparent 96%);
-}
-
-#hero::after {
-  z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(8, 11, 26, .12), rgba(8, 11, 26, .88)),
-    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, .34) 78%);
-}
-
-/* film grain */
-.film-grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 4;
-  opacity: .03;
-  mix-blend-mode: overlay;
-  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>');
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 5;
-}
-
-.bg-grid {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: .12;
-  background-size: 60px 60px;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, .04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, .04) 1px, transparent 1px);
-  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-}
-
-/* lamp beams */
-.lamp-beams {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
   overflow: hidden;
+  z-index: 1;
 }
 
-.lamp-left {
+.floating-icon {
   position: absolute;
-  top: 0;
-  right: 50%;
-  height: 55%;
-  width: 0;
-  background: conic-gradient(from 70deg at center top, #7C3AED, #A855F7, transparent, transparent);
-  opacity: .18;
-  border-radius: 0 0 0 100%;
-  transition: width .9s var(--ease), opacity .9s ease;
+  font-size: 2rem;
+  opacity: 0;
 }
 
-.lamp-right {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 55%;
-  width: 0;
-  background: conic-gradient(from 290deg at center top, transparent, transparent, #A855F7, #7C3AED);
-  opacity: .18;
-  border-radius: 0 0 100% 0;
-  transition: width .9s var(--ease), opacity .9s ease;
+.floating-icon.fa-briefcase {
+  color: var(--pink);
+  text-shadow: 0 0 8px var(--pink), 0 0 20px var(--pink), 0 0 30px var(--pink);
 }
 
-.lamp-line {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #A855F7, #7C3AED, #A855F7, transparent);
-  border-radius: 9999px;
-  box-shadow: 0 0 18px 4px rgba(168, 85, 247, .55);
-  z-index: 3;
-  pointer-events: none;
-  opacity: .28;
-  transition: width .9s var(--ease) .15s, opacity .9s ease .15s;
+.floating-icon.fa-map-marker-alt {
+  color: var(--purple);
+  text-shadow: 0 0 8px var(--purple), 0 0 20px var(--purple), 0 0 30px var(--purple);
 }
 
-.lamp-glow {
-  position: absolute;
-  top: 28%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 380px;
-  height: 190px;
-  background: radial-gradient(ellipse, rgba(168, 85, 247, .32) 0%, rgba(124, 58, 237, .12) 40%, transparent 70%);
-  border-radius: 50%;
-  z-index: 2;
-  pointer-events: none;
-  opacity: .28;
-  transition: opacity .9s ease .2s;
+@keyframes float-up {
+  0% { transform: translateY(100vh) rotate(0); opacity: 0; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
 }
 
-#hero.lamp-ready .lamp-left,
-#hero.lamp-ready .lamp-right {
-  width: 50%;
-  opacity: .28;
+.floating-icon {
+  animation-name: float-up;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-#hero.lamp-ready .lamp-line {
-  width: 58%;
-  opacity: .38;
-}
+.floating-icon:nth-child(1) { left: 10%; animation-duration: 15s; animation-delay: 0s; font-size: 2.5rem; }
+.floating-icon:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 3s; font-size: 1.8rem; }
+.floating-icon:nth-child(3) { left: 30%; animation-duration: 18s; animation-delay: 1s; font-size: 2.2rem; }
+.floating-icon:nth-child(4) { left: 40%; animation-duration: 10s; animation-delay: 5s; font-size: 2.8rem; }
+.floating-icon:nth-child(5) { left: 50%; animation-duration: 14s; animation-delay: 2s; font-size: 1.5rem; }
+.floating-icon:nth-child(6) { left: 60%; animation-duration: 16s; animation-delay: 6s; font-size: 2.3rem; }
+.floating-icon:nth-child(7) { left: 70%; animation-duration: 20s; animation-delay: 4s; font-size: 1.9rem; }
+.floating-icon:nth-child(8) { left: 80%; animation-duration: 13s; animation-delay: 7s; font-size: 2.6rem; }
+.floating-icon:nth-child(9) { left: 90%; animation-duration: 17s; animation-delay: 9s; font-size: 2.1rem; }
+.floating-icon:nth-child(10) { left: 15%; animation-duration: 11s; animation-delay: 8s; font-size: 2.4rem; }
+.floating-icon:nth-child(11) { left: 25%; animation-duration: 19s; animation-delay: 11s; font-size: 1.7rem; }
+.floating-icon:nth-child(12) { left: 35%; animation-duration: 14s; animation-delay: 10s; font-size: 2.9rem; }
+.floating-icon:nth-child(13) { left: 45%; animation-duration: 16s; animation-delay: 13s; font-size: 2.0rem; }
+.floating-icon:nth-child(14) { left: 55%; animation-duration: 12s; animation-delay: 15s; font-size: 2.7rem; }
+.floating-icon:nth-child(15) { left: 65%; animation-duration: 18s; animation-delay: 12s; font-size: 1.6rem; }
+.floating-icon:nth-child(16) { left: 75%; animation-duration: 15s; animation-delay: 16s; font-size: 2.5rem; }
+.floating-icon:nth-child(17) { left: 85%; animation-duration: 13s; animation-delay: 14s; font-size: 2.2rem; }
+.floating-icon:nth-child(18) { left: 5%; animation-duration: 19s; animation-delay: 18s; font-size: 1.9rem; }
+.floating-icon:nth-child(19) { left: 95%; animation-duration: 11s; animation-delay: 17s; font-size: 2.8rem; }
+.floating-icon:nth-child(20) { left: 50%; animation-duration: 17s; animation-delay: 19s; font-size: 2.3rem; }
 
-#hero.lamp-ready .lamp-glow {
-  opacity: .35;
-}
 
-/* hero text wrapper */
+
 .hero-inner {
   position: relative;
-  z-index: 5;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -805,6 +712,7 @@ h2 {
   height: 36px;
   background: linear-gradient(180deg, transparent, rgba(124, 58, 237, .4), transparent);
 }
+
 
 /* ======================================================== */
 /*  REALITY CHECK SECTION                                   */
