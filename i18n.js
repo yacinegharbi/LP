@@ -340,7 +340,7 @@ function applyLang(lang) {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
 
-  try { localStorage.setItem('workdz-lang', lang); } catch (e) {}
+  try { localStorage.setItem('workdz-lang', lang); } catch (e) { }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -349,6 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   let saved = 'en';
-  try { saved = localStorage.getItem('workdz-lang') || 'en'; } catch (e) {}
+  try { saved = localStorage.getItem('workdz-lang') || 'en'; } catch (e) { }
   applyLang(saved);
 });

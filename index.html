@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WorkDZ — Algeria's Newest Recruitment Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- ===== ANNOUNCEMENT BAR ===== -->
@@ -21,7 +25,8 @@
         <span data-i18n="announce.sub"> Official launch August 2025 — stay tuned.</span>
       </div>
       <form class="announce-form" id="announceForm" onsubmit="return handleAnnounce(event)">
-        <input type="email" class="announce-input" data-i18n-placeholder="announce.placeholder" placeholder="Your email" aria-label="Email" required />
+        <input type="email" class="announce-input" data-i18n-placeholder="announce.placeholder" placeholder="Your email"
+          aria-label="Email" required />
         <button type="submit" class="announce-btn" data-i18n="announce.btn">Notify Me ✈</button>
       </form>
       <button class="announce-close" id="announceClose" aria-label="Close">✕</button>
@@ -34,9 +39,9 @@
       <img src="workdz-logo.svg" alt="WorkDZ logo" height="44" />
     </a>
     <ul id="nav-menu" role="list">
-      <li><a href="#devices"    data-i18n="nav.platform">The Platform</a></li>
-      <li><a href="#features"   data-i18n="nav.features">Features</a></li>
-      <li><a href="#seekers"    data-i18n="nav.seekers">For Seekers</a></li>
+      <li><a href="#devices" data-i18n="nav.platform">The Platform</a></li>
+      <li><a href="#features" data-i18n="nav.features">Features</a></li>
+      <li><a href="#seekers" data-i18n="nav.seekers">For Seekers</a></li>
       <li><a href="#recruiters" data-i18n="nav.recruiters">For Recruiters</a></li>
     </ul>
     <div class="lang-switcher" role="group" aria-label="Language">
@@ -108,11 +113,12 @@
         <div class="reality-text">
           <p class="section-eyebrow" data-i18n="reality.eyebrow">Reality Check</p>
           <h2 class="reality-stat" data-i18n="reality.stat">3.7 million<br>unemployed</h2>
-          <p class="reality-desc" data-i18n="reality.desc">Without wasta (personal influence), qualified candidates struggle to be seen.</p>
+          <p class="reality-desc" data-i18n="reality.desc">Without wasta (personal influence), qualified candidates
+            struggle to be seen.</p>
         </div>
         <div class="reality-img-wrap">
           <img src="reality-check-pic.jpg" alt="Job seeker in Algeria" class="reality-img"
-               onerror="this.style.display='none'" />
+            onerror="this.style.display='none'" />
           <div class="reality-img-fade" aria-hidden="true"></div>
         </div>
       </div>
@@ -123,214 +129,243 @@
         <source src="solution-band.mp4" type="video/mp4" />
       </video>
 
-    <!-- ===== HEATMAP SHOWCASE ===== -->
-    <section id="heatmap-section" class="fade-in heatmap-section">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow" data-i18n="prob.eyebrow">The Problem</p>
-          <h2 data-i18n="reality.question">What is the solution?</h2>
-          <p class="section-sub" data-i18n="map.sub">The answer starts with one combined map view, not separate cards.</p>
+      <!-- ===== HEATMAP SHOWCASE ===== -->
+      <section id="heatmap-section" class="fade-in heatmap-section">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-eyebrow" data-i18n="prob.eyebrow">The Problem</p>
+            <h2 data-i18n="reality.question">What is the solution?</h2>
+            <p class="section-sub" data-i18n="map.sub">The answer starts with one combined map view, not separate cards.
+            </p>
+          </div>
+
+          <div class="heatmap-shell">
+            <img src="mapWork.png" alt="Regional job map" class="heatmap-map" loading="eager" />
+          </div>
         </div>
+      </section>
 
-        <div class="heatmap-shell">
-          <img src="mapWork.png" alt="Regional job map" class="heatmap-map" loading="eager" />
+      <!-- ===== DEVICES SECTION ===== -->
+      <section id="devices" class="fade-in">
+        <div class="container">
+
+          <!-- section label -->
+          <div class="section-header">
+            <p class="section-eyebrow" data-i18n="card.eyebrow">The Platform</p>
+            <h2 data-i18n="card.heading">Algeria's recruitment,<br><span class="gradient-text">redefined.</span></h2>
+            <p class="section-sub" data-i18n="card.desc2">One app. Every device. All 68 wilayas.</p>
+          </div>
+
+          <!-- deep card containing devices -->
+          <div class="devices-card">
+            <div class="devices-card-sheen" aria-hidden="true"></div>
+
+            <div class="devices-layout">
+
+              <!-- LEFT: platform description -->
+              <div class="devices-left">
+                <p class="card-desc" data-i18n="card.desc">
+                  <strong>WorkDZ</strong> connects job seekers and recruiters across all 68 wilayas
+                  with real-time messaging, smart matching, and a full application lifecycle — on every device.
+                </p>
+                <div class="card-stats">
+                  <div class="card-stat">
+                    <span class="card-stat-val gradient-text">58</span>
+                    <span class="card-stat-label" data-i18n="card.wilayas">Wilayas</span>
+                  </div>
+                  <div class="card-stat">
+                    <span class="card-stat-val gradient-text">3</span>
+                    <span class="card-stat-label" data-i18n="card.languages">Languages</span>
+                  </div>
+                  <div class="card-stat">
+                    <span class="card-stat-val gradient-text">∞</span>
+                    <span class="card-stat-label" data-i18n="card.opportunities">Opportunities</span>
+                  </div>
+                </div>
+                <div class="devices-badges">
+                  <div class="floating-badge-static">
+                    <span class="badge-icon">💻</span>
+                    <div>
+                      <p class="badge-title" data-i18n="badge1.title">Web &amp; Mobile</p>
+                      <p class="badge-sub" data-i18n="badge1.sub">One account, every device</p>
+                    </div>
+                  </div>
+                  <div class="floating-badge-static">
+                    <span class="badge-icon">⚡</span>
+                    <div>
+                      <p class="badge-title" data-i18n="badge2.title">Instant Matches</p>
+                      <p class="badge-sub" data-i18n="badge2.sub">AI-powered recommendations</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CENTER: laptop + phone mockups -->
+              <div class="devices-center" id="devicesCenter">
+
+                <!-- LAPTOP -->
+                <div class="laptop-mockup" id="laptopMockup">
+                  <div class="laptop-lid">
+                    <div class="laptop-screen">
+                      <div class="laptop-screen-glare" aria-hidden="true"></div>
+                      <div class="laptop-cam" aria-hidden="true"><span class="laptop-cam-dot"></span></div>
+                      <img src="desktop-screenshot.png" alt="WorkDZ web app" class="laptop-screenshot" loading="eager"
+                        onerror="this.src='desktop-screenshot.svg'" />
+                    </div>
+                  </div>
+                  <div class="laptop-base">
+                    <div class="laptop-keyboard" aria-hidden="true">
+                      <div class="kb-row kb-row-1"></div>
+                      <div class="kb-row kb-row-2"></div>
+                      <div class="kb-row kb-row-3"></div>
+                      <div class="kb-trackpad"></div>
+                    </div>
+                    <div class="laptop-base-shine" aria-hidden="true"></div>
+                  </div>
+                </div>
+
+                <!-- PHONE -->
+                <div class="phone-mockup-wrap">
+                  <div class="phone-mockup" id="phoneMockup">
+                    <div class="hw-btn hw-vol-1" aria-hidden="true"></div>
+                    <div class="hw-btn hw-vol-2" aria-hidden="true"></div>
+                    <div class="hw-btn hw-vol-3" aria-hidden="true"></div>
+                    <div class="hw-btn hw-power" aria-hidden="true"></div>
+                    <div class="phone-screen">
+                      <div class="screen-glare" aria-hidden="true"></div>
+                      <div class="dynamic-island" aria-hidden="true"><span class="island-dot"></span></div>
+                      <img src="app-screenshot.png" alt="WorkDZ mobile app" class="app-screenshot" loading="eager"
+                        onerror="this.src='app-screenshot.svg'" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- RIGHT: brand stamp -->
+              <div class="devices-right">
+                <h2 class="card-brand text-card-silver-matte">WORK<br>DZ</h2>
+              </div>
+
+            </div>
+          </div>
+
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ===== DEVICES SECTION ===== -->
-    <section id="devices" class="fade-in">
-      <div class="container">
-
-        <!-- section label -->
-        <div class="section-header">
-          <p class="section-eyebrow" data-i18n="card.eyebrow">The Platform</p>
-          <h2 data-i18n="card.heading">Algeria's recruitment,<br><span class="gradient-text">redefined.</span></h2>
-          <p class="section-sub" data-i18n="card.desc2">One app. Every device. All 68 wilayas.</p>
-        </div>
-
-        <!-- deep card containing devices -->
-        <div class="devices-card">
-          <div class="devices-card-sheen" aria-hidden="true"></div>
-
-          <div class="devices-layout">
-
-            <!-- LEFT: platform description -->
-            <div class="devices-left">
-              <p class="card-desc" data-i18n="card.desc">
-                <strong>WorkDZ</strong> connects job seekers and recruiters across all 68 wilayas
-                with real-time messaging, smart matching, and a full application lifecycle — on every device.
+      <!-- ===== PROBLEM SECTION ===== -->
+      <section id="problems" class="fade-in">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-eyebrow" data-i18n="prob.eyebrow">The Problem</p>
+            <h2 data-i18n="prob.h2">The Algerian job market is <span class="gradient-text">fragmented</span></h2>
+            <p class="section-sub" data-i18n="prob.sub">Three structural gaps keep seekers and recruiters from finding
+              each other.</p>
+          </div>
+          <div class="problem-cards">
+            <div class="problem-card">
+              <span class="card-icon" aria-hidden="true">🧩</span>
+              <h3 data-i18n="prob.c1.title">Functional Fragmentation</h3>
+              <p data-i18n="prob.c1.desc">Core features spread across disconnected tools that don't talk to each other.
               </p>
-              <div class="card-stats">
-                <div class="card-stat">
-                  <span class="card-stat-val gradient-text">58</span>
-                  <span class="card-stat-label" data-i18n="card.wilayas">Wilayas</span>
-                </div>
-                <div class="card-stat">
-                  <span class="card-stat-val gradient-text">3</span>
-                  <span class="card-stat-label" data-i18n="card.languages">Languages</span>
-                </div>
-                <div class="card-stat">
-                  <span class="card-stat-val gradient-text">∞</span>
-                  <span class="card-stat-label" data-i18n="card.opportunities">Opportunities</span>
-                </div>
+            </div>
+            <div class="problem-card">
+              <span class="card-icon" aria-hidden="true">📊</span>
+              <h3 data-i18n="prob.c2.title">Market Segmentation</h3>
+              <p data-i18n="prob.c2.desc">Full-time and part-time work handled in isolation, leaving gig workers behind.
+              </p>
+            </div>
+            <div class="problem-card">
+              <span class="card-icon" aria-hidden="true">🔗</span>
+              <h3 data-i18n="prob.c3.title">No Unified Lifecycle</h3>
+              <p data-i18n="prob.c3.desc">No platform covers discovery → application → communication → tracking.</p>
+            </div>
+          </div>
+          <p class="bridge-statement" data-i18n="prob.bridge">WorkDZ bridges all three gaps in <span
+              class="gradient-text">one unified platform.</span></p>
+        </div>
+      </section>
+
+      <!-- ===== VALUE PROP ===== -->
+      <section id="seekers" class="fade-in">
+        <div class="container">
+          <div class="section-header">
+            <h2 data-i18n="val.h2">Built for <span class="gradient-text">both sides</span> of hiring</h2>
+          </div>
+          <div class="value-grid">
+            <div class="value-col">
+              <div class="value-col-header">
+                <span class="value-col-icon" aria-hidden="true">👤</span>
+                <h3 class="gradient-text" data-i18n="val.seekers.title">For Job Seekers</h3>
+                <p class="value-col-tagline" data-i18n="val.seekers.tag">Find the right opportunity, faster.</p>
               </div>
-              <div class="devices-badges">
-                <div class="floating-badge-static">
-                  <span class="badge-icon">💻</span>
-                  <div>
-                    <p class="badge-title" data-i18n="badge1.title">Web &amp; Mobile</p>
-                    <p class="badge-sub" data-i18n="badge1.sub">One account, every device</p>
-                  </div>
-                </div>
-                <div class="floating-badge-static">
-                  <span class="badge-icon">⚡</span>
-                  <div>
-                    <p class="badge-title" data-i18n="badge2.title">Instant Matches</p>
-                    <p class="badge-sub" data-i18n="badge2.sub">AI-powered recommendations</p>
-                  </div>
-                </div>
+              <ul class="benefit-list">
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b1">Browse &amp;
+                    apply to jobs across all 58 wilayas</span></li>
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b2">Showcase your
+                    skills, CV, and portfolio</span></li>
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b3">Receive smart,
+                    personalized recommendations</span></li>
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b4">Real-time
+                    messaging with recruiters</span></li>
+              </ul>
+            </div>
+            <div class="value-col" id="recruiters">
+              <div class="value-col-header">
+                <span class="value-col-icon" aria-hidden="true">🏢</span>
+                <h3 class="gradient-text" data-i18n="val.rec.title">For Recruiters</h3>
+                <p class="value-col-tagline" data-i18n="val.rec.tag">Hire smarter, hire local.</p>
               </div>
+              <ul class="benefit-list">
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b1">Post job offers in
+                    minutes</span></li>
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b2">Manage applications
+                    in one inbox</span></li>
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b3">Browse a nationwide
+                    talent pool</span></li>
+                <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b4">Cold-message
+                    candidates that fit</span></li>
+              </ul>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- CENTER: laptop + phone mockups -->
-            <div class="devices-center" id="devicesCenter">
-
-              <!-- LAPTOP -->
-              <div class="laptop-mockup" id="laptopMockup">
-                <div class="laptop-lid">
-                  <div class="laptop-screen">
-                    <div class="laptop-screen-glare" aria-hidden="true"></div>
-                    <div class="laptop-cam" aria-hidden="true"><span class="laptop-cam-dot"></span></div>
-                    <img src="desktop-screenshot.png" alt="WorkDZ web app"
-                      class="laptop-screenshot" loading="eager"
-                      onerror="this.src='desktop-screenshot.svg'" />
-                  </div>
-                </div>
-                <div class="laptop-base">
-                  <div class="laptop-keyboard" aria-hidden="true">
-                    <div class="kb-row kb-row-1"></div>
-                    <div class="kb-row kb-row-2"></div>
-                    <div class="kb-row kb-row-3"></div>
-                    <div class="kb-trackpad"></div>
-                  </div>
-                  <div class="laptop-base-shine" aria-hidden="true"></div>
-                </div>
-              </div>
-
-              <!-- PHONE -->
-              <div class="phone-mockup-wrap">
-                <div class="phone-mockup" id="phoneMockup">
-                  <div class="hw-btn hw-vol-1" aria-hidden="true"></div>
-                  <div class="hw-btn hw-vol-2" aria-hidden="true"></div>
-                  <div class="hw-btn hw-vol-3" aria-hidden="true"></div>
-                  <div class="hw-btn hw-power" aria-hidden="true"></div>
-                  <div class="phone-screen">
-                    <div class="screen-glare" aria-hidden="true"></div>
-                    <div class="dynamic-island" aria-hidden="true"><span class="island-dot"></span></div>
-                    <img src="app-screenshot.png" alt="WorkDZ mobile app"
-                      class="app-screenshot" loading="eager"
-                      onerror="this.src='app-screenshot.svg'" />
-                  </div>
-                </div>
-              </div>
-
+      <!-- ===== FEATURES ===== -->
+      <section id="features" class="fade-in">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-eyebrow" data-i18n="feat.eyebrow">Features</p>
+            <h2 data-i18n="feat.h2">Everything you need,<br><span class="gradient-text">nothing you don't</span></h2>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card"><span class="card-icon" aria-hidden="true">📍</span>
+              <h3 data-i18n="feat.f1.title">Wilaya-based search</h3>
+              <p data-i18n="feat.f1.desc">Geolocated discovery across all 58 Algerian wilayas.</p>
             </div>
-
-            <!-- RIGHT: brand stamp -->
-            <div class="devices-right">
-              <h2 class="card-brand text-card-silver-matte">WORK<br>DZ</h2>
+            <div class="feature-card"><span class="card-icon" aria-hidden="true">⭐</span>
+              <h3 data-i18n="feat.f2.title">Recommendation system</h3>
+              <p data-i18n="feat.f2.desc">Personalized matches based on your skills, experience, and search history.</p>
             </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===== PROBLEM SECTION ===== -->
-    <section id="problems" class="fade-in">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow" data-i18n="prob.eyebrow">The Problem</p>
-          <h2 data-i18n="prob.h2">The Algerian job market is <span class="gradient-text">fragmented</span></h2>
-          <p class="section-sub" data-i18n="prob.sub">Three structural gaps keep seekers and recruiters from finding each other.</p>
-        </div>
-        <div class="problem-cards">
-          <div class="problem-card">
-            <span class="card-icon" aria-hidden="true">🧩</span>
-            <h3 data-i18n="prob.c1.title">Functional Fragmentation</h3>
-            <p data-i18n="prob.c1.desc">Core features spread across disconnected tools that don't talk to each other.</p>
-          </div>
-          <div class="problem-card">
-            <span class="card-icon" aria-hidden="true">📊</span>
-            <h3 data-i18n="prob.c2.title">Market Segmentation</h3>
-            <p data-i18n="prob.c2.desc">Full-time and part-time work handled in isolation, leaving gig workers behind.</p>
-          </div>
-          <div class="problem-card">
-            <span class="card-icon" aria-hidden="true">🔗</span>
-            <h3 data-i18n="prob.c3.title">No Unified Lifecycle</h3>
-            <p data-i18n="prob.c3.desc">No platform covers discovery → application → communication → tracking.</p>
-          </div>
-        </div>
-        <p class="bridge-statement" data-i18n="prob.bridge">WorkDZ bridges all three gaps in <span class="gradient-text">one unified platform.</span></p>
-      </div>
-    </section>
-
-    <!-- ===== VALUE PROP ===== -->
-    <section id="seekers" class="fade-in">
-      <div class="container">
-        <div class="section-header">
-          <h2 data-i18n="val.h2">Built for <span class="gradient-text">both sides</span> of hiring</h2>
-        </div>
-        <div class="value-grid">
-          <div class="value-col">
-            <div class="value-col-header">
-              <span class="value-col-icon" aria-hidden="true">👤</span>
-              <h3 class="gradient-text" data-i18n="val.seekers.title">For Job Seekers</h3>
-              <p class="value-col-tagline" data-i18n="val.seekers.tag">Find the right opportunity, faster.</p>
+            <div class="feature-card"><span class="card-icon" aria-hidden="true">💬</span>
+              <h3 data-i18n="feat.f3.title">Real-time messaging</h3>
+              <p data-i18n="feat.f3.desc">Chat directly with recruiters and candidates. No middlemen.</p>
             </div>
-            <ul class="benefit-list">
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b1">Browse &amp; apply to jobs across all 58 wilayas</span></li>
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b2">Showcase your skills, CV, and portfolio</span></li>
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b3">Receive smart, personalized recommendations</span></li>
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.seekers.b4">Real-time messaging with recruiters</span></li>
-            </ul>
-          </div>
-          <div class="value-col" id="recruiters">
-            <div class="value-col-header">
-              <span class="value-col-icon" aria-hidden="true">🏢</span>
-              <h3 class="gradient-text" data-i18n="val.rec.title">For Recruiters</h3>
-              <p class="value-col-tagline" data-i18n="val.rec.tag">Hire smarter, hire local.</p>
+            <div class="feature-card"><span class="card-icon" aria-hidden="true">📊</span>
+              <h3 data-i18n="feat.f4.title">Application tracking</h3>
+              <p data-i18n="feat.f4.desc">Live status updates from applied to hired, in one timeline.</p>
             </div>
-            <ul class="benefit-list">
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b1">Post job offers in minutes</span></li>
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b2">Manage applications in one inbox</span></li>
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b3">Browse a nationwide talent pool</span></li>
-              <li><span class="check-icon" aria-hidden="true">✓</span><span data-i18n="val.rec.b4">Cold-message candidates that fit</span></li>
-            </ul>
+            <div class="feature-card"><span class="card-icon" aria-hidden="true">🌐</span>
+              <h3 data-i18n="feat.f5.title">Trilingual experience</h3>
+              <p data-i18n="feat.f5.desc">Native interface in French, Arabic, and English.</p>
+            </div>
+            <div class="feature-card"><span class="card-icon" aria-hidden="true">📱</span>
+              <h3 data-i18n="feat.f6.title">Web &amp; Mobile</h3>
+              <p data-i18n="feat.f6.desc">One account, every device, always in sync.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== FEATURES ===== -->
-    <section id="features" class="fade-in">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow" data-i18n="feat.eyebrow">Features</p>
-          <h2 data-i18n="feat.h2">Everything you need,<br><span class="gradient-text">nothing you don't</span></h2>
-        </div>
-        <div class="features-grid">
-          <div class="feature-card"><span class="card-icon" aria-hidden="true">📍</span><h3 data-i18n="feat.f1.title">Wilaya-based search</h3><p data-i18n="feat.f1.desc">Geolocated discovery across all 58 Algerian wilayas.</p></div>
-          <div class="feature-card"><span class="card-icon" aria-hidden="true">⭐</span><h3 data-i18n="feat.f2.title">Recommendation system</h3><p data-i18n="feat.f2.desc">Personalized matches based on your skills, experience, and search history.</p></div>
-          <div class="feature-card"><span class="card-icon" aria-hidden="true">💬</span><h3 data-i18n="feat.f3.title">Real-time messaging</h3><p data-i18n="feat.f3.desc">Chat directly with recruiters and candidates. No middlemen.</p></div>
-          <div class="feature-card"><span class="card-icon" aria-hidden="true">📊</span><h3 data-i18n="feat.f4.title">Application tracking</h3><p data-i18n="feat.f4.desc">Live status updates from applied to hired, in one timeline.</p></div>
-          <div class="feature-card"><span class="card-icon" aria-hidden="true">🌐</span><h3 data-i18n="feat.f5.title">Trilingual experience</h3><p data-i18n="feat.f5.desc">Native interface in French, Arabic, and English.</p></div>
-          <div class="feature-card"><span class="card-icon" aria-hidden="true">📱</span><h3 data-i18n="feat.f6.title">Web &amp; Mobile</h3><p data-i18n="feat.f6.desc">One account, every device, always in sync.</p></div>
-        </div>
-      </div>
-    </section>
+      </section>
 
     </div>
 
@@ -340,12 +375,14 @@
         <source src="cta-excited.mp4" type="video/mp4" />
       </video>
       <div class="orb orb-cta-purple" aria-hidden="true"></div>
-      <div class="orb orb-cta-pink"   aria-hidden="true"></div>
+      <div class="orb orb-cta-pink" aria-hidden="true"></div>
       <div class="container cta-section-inner">
         <h2 data-i18n="finalcta.h2">Excited? <span class="gradient-text">Stay tuned.</span></h2>
-        <p class="cta-subtitle" data-i18n="finalcta.sub">WorkDZ launches in August 2025. Drop your email and be the first to know.</p>
+        <p class="cta-subtitle" data-i18n="finalcta.sub">WorkDZ launches in August 2025. Drop your email and be the
+          first to know.</p>
         <form class="cta-email-form" id="ctaEmailForm" onsubmit="return handleCtaEmail(event)">
-          <input type="email" class="cta-email-input" data-i18n-placeholder="announce.placeholder" placeholder="Your email" aria-label="Email" required />
+          <input type="email" class="cta-email-input" data-i18n-placeholder="announce.placeholder"
+            placeholder="Your email" aria-label="Email" required />
           <button type="submit" class="btn btn-primary btn-lg" data-i18n="announce.btn">Notify Me ✈</button>
         </form>
         <p class="cta-fine" data-i18n="finalcta.fine">No spam. Just one email when we launch.</p>
@@ -360,15 +397,16 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="workdz-logo.svg" alt="WorkDZ logo" height="52" class="footer-logo-img" />
-          <p class="footer-tagline" data-i18n="footer.tagline">Algeria's newest end-to-end recruitment platform — connecting talent and opportunity across all 68 wilayas.</p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Algeria's newest end-to-end recruitment platform —
+            connecting talent and opportunity across all 68 wilayas.</p>
           <p class="footer-attr" data-i18n="footer.attr">Built by USTHB students, Algiers</p>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.product">Product</h4>
           <ul>
-            <li><a href="#devices"    data-i18n="nav.platform">The Platform</a></li>
-            <li><a href="#features"   data-i18n="nav.features">Features</a></li>
-            <li><a href="#seekers"    data-i18n="nav.seekers">For Seekers</a></li>
+            <li><a href="#devices" data-i18n="nav.platform">The Platform</a></li>
+            <li><a href="#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="#seekers" data-i18n="nav.seekers">For Seekers</a></li>
             <li><a href="#recruiters" data-i18n="nav.recruiters">For Recruiters</a></li>
           </ul>
         </div>
@@ -385,10 +423,14 @@
         <div class="footer-col">
           <h4 data-i18n="footer.social">Social</h4>
           <ul>
-            <li><a href="https://twitter.com/WorkDZ" aria-label="WorkDZ on Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a></li>
-            <li><a href="https://linkedin.com/company/workdz" aria-label="WorkDZ on LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-            <li><a href="https://instagram.com/workdz" aria-label="WorkDZ on Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="mailto:hello@workdz.com" aria-label="Email WorkDZ"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="https://twitter.com/WorkDZ" aria-label="WorkDZ on Twitter" target="_blank" rel="noopener"><i
+                  class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://linkedin.com/company/workdz" aria-label="WorkDZ on LinkedIn" target="_blank"
+                rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://instagram.com/workdz" aria-label="WorkDZ on Instagram" target="_blank"
+                rel="noopener"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="mailto:hello@workdz.com" aria-label="Email WorkDZ"><i class="fas fa-envelope"></i> Email</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -402,4 +444,5 @@
   <script src="i18n.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>
