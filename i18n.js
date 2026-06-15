@@ -30,6 +30,8 @@ const translations = {
     'workflow.step3': 'Apply',
     'workflow.step4': 'Interview',
     'workflow.step5': 'Accepted',
+    'workflow.title': 'A new, simplified workflow',
+    'workflow.subtitle': 'A new, simplified workflow that allows you to get any job in Algeria, whatever your skills.',
 
     'reality.eyebrow': 'Reality Check',
     'reality.stat': '3.7 million<br>unemployed',
@@ -137,6 +139,8 @@ const translations = {
     'workflow.step3': 'Postuler',
     'workflow.step4': 'Entretien',
     'workflow.step5': 'Accepté',
+    'workflow.title': 'Un nouveau flux de travail simplifié',
+    'workflow.subtitle': 'Un nouveau flux de travail simplifié qui vous permet d\'obtenir n\'importe quel emploi en Algérie, quelles que soient vos compétences.',
 
     'reality.eyebrow': 'Vérification des faits',
     'reality.stat': '3,7 millions<br>de chômeurs',
@@ -244,6 +248,8 @@ const translations = {
     'workflow.step3': 'قدم',
     'workflow.step4': 'مقابلة',
     'workflow.step5': 'مقبول',
+    'workflow.title': 'سير عمل جديد ومبسط',
+    'workflow.subtitle': 'سير عمل جديد ومبسط يسمح لك بالحصول على أي وظيفة في الجزائر، مهما كانت مهاراتك.',
 
     'reality.eyebrow': 'شوف الواقع',
     'reality.stat': '3.7 مليون<br>بطال',
@@ -308,7 +314,7 @@ const translations = {
     'finalcta.sub': 'WorkDZ الاطلاق راح يكون في أوت 2026 . حط الإيمايل تاعك باش تكون اللول لي على بالو.',
     'finalcta.create': 'علمني',
     'finalcta.learn': 'اكتشف الميزات',
-    'finalcta.fine':'سجل لا تضيع الفرصة',
+    'finalcta.fine': 'سجل لا تضيع الفرصة',
 
     'footer.tagline': 'أحدث منصة توظيف في دزاير - تربط المواهب بالفرص في 68 ولاية.',
     'footer.attr': 'مخدوم من طرف طلبة تاع USTHB، دزاير',

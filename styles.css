@@ -1,5 +1,4 @@
-
-/* ===========================================================
+/* ============================================================
    DESIGN TOKENS
    ============================================================ */
 :root {
@@ -504,6 +503,10 @@ h2 {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #video-section .hero-video {
@@ -513,6 +516,12 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+#video-section .section-header {
+    position: relative;
+    z-index: 1;
+    color: white;
 }
 
 /* ======================================================== */
@@ -1972,6 +1981,14 @@ footer {
 }
 
 [dir="rtl"] #nav-menu {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-h1 {
+  letter-spacing: normal;
+}
+
+[dir="rtl"] .hero-cta-row {
   flex-direction: row-reverse;
 }
 
