@@ -334,7 +334,7 @@ h2 {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
-  transition: border-color 300ms, background 300ms;
+  transition: top 0.3s ease, border-color 300ms, background 300ms;
 }
 
 #navbar.scrolled {
@@ -607,10 +607,7 @@ h2 {
   text-align: center;
   padding: 8rem 2rem 6rem;
   max-width: 1200px;
-}
-
-.hero-left {
-  /* No styles needed here */
+  gap: 1.5rem;
 }
 
 /* CSS entrance animations */
@@ -1976,6 +1973,10 @@ footer {
 /* ======================================================== */
 /*  LANG SWITCHER — RTL adjustments                        */
 /* ======================================================== */
+[dir="rtl"] .announce-inner {
+  flex-direction: row-reverse;
+}
+
 [dir="rtl"] #navbar {
   flex-direction: row-reverse;
 }
